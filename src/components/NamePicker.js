@@ -15,7 +15,21 @@ export const NamePicker = () => {
 
   const addToShortList = (id) => {
     setShortList([...shortList, id]);
+
+    localStorage.setItem('shortList', JSON.stringify([...shortList, id]));
   };
 
-  return <NameList nameList={filteredNames} onItemClick={addToShortList} />;
+  const hasFilteredNames = filteredNames.length > 0;
+
+  return (
+    <>
+      {hasFilteredNames > 0 && (
+        <>
+          <p className='short-list-text'>Для выбора, нажмите на имя</p>
+          <NameList nameList={filteredNames} onItemClick={addToShortList} />
+        </>
+      )}
+      <hr />
+    </>
+  );
 };

@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom';
 // Styles
 import 'normalize-css';
 import './css/style.css';
+import './css/fonts.css';
 
 // Components
 import { App } from './App';

@@ -1,11 +1,27 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNames } from '../providers/names';
 import { useAppState } from '../providers/app-state';
-import { NameList } from './NameList';
+import { FullName } from './FullName';
+import { FullNameList } from './FullNameList';
 
 export const ShortList = () => {
   const names = useNames();
   const { shortList, setShortList } = useAppState();
+  const [babyName, setBabyName] = useState('');
+  const [babySurname, setBabySurname] = useState('');
+
+  useEffect(() => {
+    checkLocalStorage('babySurname', setBabyName);
+    checkLocalStorage('babyPatronymic', setBabySurname);
+    // checkLocalStorage('shortList', setShortList);
+    localStorage.hasOwnProperty('shortList') &&
+      setShortList(JSON.parse(localStorage.getItem('shortList')));
+  }, [setShortList]);
+
+  const checkLocalStorage = (key, stateFunction) => {
+    localStorage.hasOwnProperty(key) &&
+      stateFunction(localStorage.getItem(key));
+  };
 
   const shortListedNames = names.filter((entry) =>
     shortList.includes(entry.id)
@@ -19,14 +35,25 @@ export const ShortList = () => {
 
   return (
     <div className='short-list'>
-      <h2>{hasNames ? 'Выбранные имена' : 'Нажмите на имя чтобы выбрать'}</h2>
+      <FullName
+        babyName={babyName}
+        setBabyName={setBabyName}
+        babySurname={babySurname}
+        setBabySurname={setBabySurname}
+      />
 
       {hasNames && (
         <>
-          <NameList
+          <FullNameList
             nameList={shortListedNames}
             onItemClick={removeFromShortList}
+            babyName={babyName}
+            babySurname={babySurname}
           />
+
+          <p className='short-list-subtitle'>
+            Нажмите на имя, чтобы удалить из списка
+          </p>
 
           <hr />
         </>

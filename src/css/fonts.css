@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'San Francisco Pro Display Regular';
+    src: url('../assets/fonts/SFProDisplay-Regular.eot'),
+        url('../assets/fonts/SFProDisplay-Regular.woff') format('woff'),
+        url('../assets/fonts/SFProDisplay-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}

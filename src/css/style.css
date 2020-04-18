@@ -4,47 +4,99 @@
     box-sizing: border-box;
 }
 
+body {
+    background: #f4f7f8;
+}
+
 main {
-    padding: 0 1rem;
+    /* padding: 0 1rem; */
+    margin: 1rem;
     margin-bottom: 2rem;
 }
 
 /* ### Search ### */
 
 header {
-    background: #3498db;
-    margin-bottom: 2rem;
-}
-
-input[type="text"] {
     margin: 1rem;
-    background: #fff;
-    font-size: 1.3rem;
-    border: none;
-    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
-    border-radius: 3px;
-    padding: 2rem;
-    width: calc(100% - 2rem);
-    height: 2rem;
-    transition: box-shadow 0.1s;
+    /* margin-top: 2rem;
+    margin-bottom: 4rem; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    /* position: relative; */
 }
 
-input[type="text"]:focus {
+.logo_block {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: 30px;
+}
+
+.logo_text {
+    font-family: 'San Francisco Pro Display Regular';
+    font-size: 1.5rem;
+    color: #ffadd9;
+    text-align: left;
+    text-transform: uppercase;
+
+    /* delete default settings */
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+
+    margin-left: 1rem;
+}
+
+.search_input {
+    font-family: Calibri,
+        Candara,
+        Segoe,
+        Segoe UI,
+        Optima,
+        Arial,
+        sans-serif;
+    border: 0;
+    border-radius: 4px;
+    font-size: 15px;
+    /* margin: 1rem; */
+    outline: 0;
+    padding: 20px;
+    width: 100%;
+    background-color: #e8eeef;
+    color: #8a97a0;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+
+}
+
+.search_input:focus {
     outline: none;
-    box-shadow: inset 0 0 1px 3px rgb(154, 196, 222);
+    background: #d2d9dd;
 }
 
 /* ### NamesList ### */
 
 ul {
     padding: 0;
+
+    border: 0;
+    border-radius: 4px;
+    font-size: 15px;
+    margin: 0;
+    outline: 0;
+    padding: 2rem;
+    width: 100%;
+    background-color: #e8eeef;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+    margin-bottom: 30px;
 }
 
 li {
     position: relative;
     list-style: none;
     display: inline-block;
-    margin: 2px;
+    margin: 5px;
     border-radius: 3px;
 }
 
@@ -84,22 +136,28 @@ li button:focus {
 }
 
 .reset-search {
-    color: #3498db;
-    border: #3498db;
-    background: #a0cfee;
+    color: #8a97a0;
+    border: #8a97a0;
+    background: #e8eeef;
     display: block;
+    float: right;
     padding: 0.2rem 0.75rem;
     border-radius: 20px;
     font-size: 12px;
     outline: none;
+    /* position: absolute;
+    bottom: 0;
+    right: 0; */
 }
 
 .credit {
-    padding: 2rem;
-    font-size: 10px;
+    margin: 1rem;
     color: #b4b4b4;
+    font-family: 'San Francisco Pro Display Regular';
+    font-weight: 400;
+    font-size: 1rem;
     text-align: right;
-    margin-top: 10em;
+    /* margin-top: 10em; */
 }
 
 .author {
@@ -109,4 +167,112 @@ li button:focus {
 
 hr {
     border-top: 1px dotted #8c8b8b;
+}
+
+.short-list-text {
+    color: #8c8b8b;
+    font-size: 14px;
+}
+
+.short-list-subtitle {
+    color: #b4b4b4;
+    font-size: 12px;
+}
+
+/* ### FullName Component ### */
+
+.fullname_block {
+    display: flex;
+}
+
+.fullname_block-flex {}
+
+.fullname_list {
+    display: block;
+    list-style: none;
+
+    border: 0;
+    border-radius: 4px;
+    font-size: 15px;
+    margin: 0;
+    outline: 0;
+    padding: 2rem;
+    width: 100%;
+    background-color: #e8eeef;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+    margin-bottom: 30px;
+}
+
+.fullname_list li {
+    /* display: block; */
+    margin: .5rem;
+}
+
+.fullname_list>li>button {
+    width: 100%;
+    padding: 1rem 2rem;
+}
+
+.fullname_input-block {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.fullname_input {
+    font-family: Calibri,
+        Candara,
+        Segoe,
+        Segoe UI,
+        Optima,
+        Arial,
+        sans-serif;
+    border: 0;
+    border-radius: 4px;
+    font-size: 15px;
+    margin: 0;
+    outline: 0;
+    padding: 10px;
+    width: 100%;
+    background-color: #e8eeef;
+    color: #8a97a0;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+    margin-bottom: 30px;
+}
+
+.fullname_input:focus {
+    outline: none;
+    background: #d2d9dd;
+}
+
+.fullname_input-text {
+    color: #8c8b8b;
+    font-size: 14px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+@media (min-width: 760px) {
+
+    .logo_block {
+        margin-bottom: 0;
+    }
+
+    .logo_text {
+        font-size: 2.2rem;
+    }
+
+    main,
+    header,
+    .credit {
+        margin: 3rem 5rem;
+    }
+
+    .search_input {
+        width: 50%;
+    }
+
+    .fullname_input {
+        width: 20%;
+    }
 }
