@@ -1,8 +1,10 @@
-## Baby Names Picker
+## Baby Name Picker
 
 Little application to choose name for your baby. Used russian names.
 
----
+--
+
+
 
 ## For developers:
 
