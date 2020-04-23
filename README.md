@@ -2,6 +2,8 @@
 
 Little application to choose name for your baby. Used russian names.
 
+To view app, follow link [http://pickname.online/](http://pickname.online/)
+
 --
 
 
